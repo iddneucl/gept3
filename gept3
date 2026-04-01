@@ -1,0 +1,31 @@
+import streamlit as st
+import google.generativeai as genai
+from openai import OpenAI
+import re
+import pandas as pd
+import plotly.express as px
+from io import StringIO
+
+# ---------------------------
+# 페이지 설정
+# ---------------------------
+st.set_page_config(
+    page_title="AI Strategy Agent",
+    page_icon="🏢",
+    layout="wide"
+)
+
+st.title("🏢 AI 전략 기획실 (Hybrid AI Agent)")
+
+# ---------------------------
+# 🔐 API 키 (secrets)
+# ---------------------------
+try:
+    GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+    OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
+except:
+    st.error("❌ secrets 설정 필요")
+    st.stop()
+
+# Gemini 설정
+genai.configure(api_key
